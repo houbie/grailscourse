@@ -72,7 +72,7 @@ NOTE: The build process of every software project should be fully automated. Tha
 - Open a terminal window and go to the directory where you want to store all your projects
 - Type `git clone https://github.com/houbie/grailscourse.git`
 - `cd grailscourse/groovy-kickstart`
-- `gradlew test`, this should compile the project and run the tests
+- `gradlew test` (windows) or `./gradlew test` (Max, linux), this should compile the project and run the tests
 - `gradlew idea`, this creates the Intellij project files
 - Open the _groovy-kickstart_ project in Intellij
     - Configure git in Intellij
