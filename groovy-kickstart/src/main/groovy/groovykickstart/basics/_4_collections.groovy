@@ -45,6 +45,19 @@ List<Integer> genericsFunction() {
     return integers
 }
 
+//utility methods
+list = [1, 2, 3]
+
+assert list.first() == 1 //array method
+assert list.head() == 1
+assert list.tail() == [2, 3]
+assert list.last() == 3  //array method
+assert list.count(3) == 1
+assert list.max() == 3
+assert list.min() == 1
+
+
+
 
 
 //maps
@@ -59,3 +72,4 @@ assert map.object == 4
 assert map['key1'] == 1
 assert map['key 2'] == 2
 assert map[object] == 3
+assert [:].size() == 0 //empty map literal

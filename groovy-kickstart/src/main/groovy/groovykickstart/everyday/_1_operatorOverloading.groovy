@@ -37,9 +37,11 @@ assert --day == MON //day = day.previous()
 
 assert day == MON //equals
 assert day < THU //compareTo
-assert day <=> MON == 0 //compareTo
+assert day<=>MON == 0 //compareTo
 
 //other operators
 def l = [1, 2]
 l << ['x', 'y'] //leftShift
 assert l == [1, 2, ['x', 'y']]
+
+assert l[1] == l.getAt(1) //getAt

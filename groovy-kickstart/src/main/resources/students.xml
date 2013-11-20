@@ -1,0 +1,14 @@
+<students>
+    <student name="Jack" age="20">
+        <course name="Math" hours="10"/>
+        <course name="Programming" hours="20"/>
+    </student>
+    <student name="John" age="18">
+        <course name="Math" hours="10"/>
+        <course name="Databases" hours="20"/>
+    </student>
+    <student name="Jane" age="18">
+        <course name="English" hours="15"/>
+        <course name="Physics" hours="22"/>
+    </student>
+</students>

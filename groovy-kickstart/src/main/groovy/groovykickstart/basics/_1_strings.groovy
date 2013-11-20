@@ -50,3 +50,14 @@ assert greeting.toString() == 'Hello world!'
 
 greeting[6..9] = 'da' //replace 'worl' with 'da'
 assert greeting.toString() == 'Hello dad!'
+
+//String operations
+greeting = 'Hello Groovy!'
+assert greeting[0] == 'H'
+assert greeting[6..-2] == 'Groovy'
+assert 'Hi' + greeting - 'Hello' == 'Hi Groovy!'
+assert greeting.count('o') == 3
+assert 'x'.padLeft(3) == '  x'
+assert 'x'.padRight(3, '_') == 'x__'
+assert 'x'.center(3) == ' x '
+assert 'x' * 3 == 'xxx'
