@@ -2,10 +2,11 @@ package petclinic
 
 class Pet {
 
+    static belongsTo = [owner: Owner]
+
     String name
     PetType type
     Date birthDate
-    Owner owner
 //    Set<Visit> visits
 
     static constraints = {
