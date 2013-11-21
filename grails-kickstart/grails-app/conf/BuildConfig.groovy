@@ -49,20 +49,23 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.24'
+//        compile 'org.jadira.usertype:usertype.jodatime:1.9.1'
     }
 
     plugins {
         // plugins for the build system only
-        build ":tomcat:7.0.42"
+        build ":tomcat:7.0.47"
 
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
+        compile ":joda-time:1.4"
+        compile ":excel-import:1.0.0"
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.3" // or ":hibernate4:4.1.11.2"
+        runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.2"
         runtime ":database-migration:1.3.8"
-        runtime ":jquery:1.10.2"
+        runtime ":jquery:1.10.2.2"
         runtime ":resources:1.2.1"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
