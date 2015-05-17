@@ -93,9 +93,9 @@ try {
 
 
 //default arguments
-String toTable(List strings, String separator = '|', int width = 10) {
-    strings.inject('') { String accumulator, String value ->
-        accumulator + separator + value.center(width) + separator + '\n'
+String toTable(def items, String separator = '|', int width = 10) {
+    items.inject('') { table, value ->
+        table << separator << value.toString().center(width) << separator << '\n'
     }
 }
 
@@ -112,6 +112,10 @@ assert '\n' + toTable(['Groovy', 'Java'], '*') == '''
 assert '\n' + toTable(['Groovy', 'Java']) == '''
 |  Groovy  |
 |   Java   |
+'''
+
+assert '\n' + toTable(123) == '''
+|   123    |
 '''
 
 
