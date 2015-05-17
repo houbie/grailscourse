@@ -1,4 +1,4 @@
-orderNr;customerNr;product;quantity;unitPrice
+orderNr;customerNr;orderLine.product;orderLine.quantity;orderLine.unitPrice
 1;1;TV;1;250
 1;1;Radio;1;100
 1;1;Phone;2;55
