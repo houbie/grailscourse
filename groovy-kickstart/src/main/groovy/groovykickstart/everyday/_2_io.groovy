@@ -1,6 +1,5 @@
 package groovykickstart.everyday
 
-
 assert new File('src/main/resources/hello.txt').text == 'Hello Groovy!\n'
 
 File tmpFile = File.createTempFile('hello', 'tmp')

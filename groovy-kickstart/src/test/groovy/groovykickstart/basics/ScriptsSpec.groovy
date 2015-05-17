@@ -3,6 +3,8 @@ package groovykickstart.basics
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import static java.io.File.*
+
 
 class ScriptsSpec extends Specification {
     @Unroll
@@ -14,11 +16,11 @@ class ScriptsSpec extends Specification {
     }
 
     private def getScriptClasses() {
-        def basePath = 'src/main/groovy'
+        def basePath = "src${separator}main${separator}groovy${separator}"
         def result = []
         new File(basePath).eachFileRecurse {
-            if (it.name=~/_\d+/) {
-                result << it.path[basePath.size() + 1..-8].replaceAll(/\W/, '.')
+            if (it.name =~ /_\d+/) {
+                result << (it.path - basePath - '.groovy').replaceAll(separator, '.')
             }
         }
         println result

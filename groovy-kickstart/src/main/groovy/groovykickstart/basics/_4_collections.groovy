@@ -24,6 +24,7 @@ assert [1, 2] * 2 == [1, 2, 1, 2]
 //automatic expansion
 list[10] = 10
 assert list.size() == 11
+// list.get(20) : IndexOutOfBoundsException
 assert list[6..9] == [null] * 4
 
 //shrink
@@ -41,7 +42,6 @@ List<Integer> genericsFunction() {
     List<Integer> integers = [1, 2, 3]
     //following will cause compilation error
     //integers << 'string'
-    expect:
     return integers
 }
 
@@ -55,6 +55,7 @@ assert list.last() == 3  //array method
 assert list.count(3) == 1
 assert list.max() == 3
 assert list.min() == 1
+assert list.sum() == 6
 
 
 
@@ -72,4 +73,6 @@ assert map.object == 4
 assert map['key1'] == 1
 assert map['key 2'] == 2
 assert map[object] == 3
+assert map['object'] == 4
+
 assert [:].size() == 0 //empty map literal

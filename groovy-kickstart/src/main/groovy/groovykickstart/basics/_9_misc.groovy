@@ -40,12 +40,11 @@ def john = new Person(name: 'John', addresses: [new Address(city: 'NY'), new Add
 def jack = new Person(name: 'Jack', addresses: [new Address(city: 'Detroit')])
 
 //implicit constructor
-Dimension area
-area = [200, 100]
+Dimension area = [200, 100]
+Dimension area2 = [width: 200, height: 100]
+assert area == area2
 assert area.width == 200
 assert area.height == 100
-
-
 
 //member access
 assert john.name == john.getName()
