@@ -1,0 +1,13 @@
+customerNumber;lastName;firstName;address;city;state;zip;discount
+1;Buffet;Jimmy;Somewhere on the Beach;Key West;FL;33040;10
+2;Bush;George;1600 Pennsylvania Ave;Washington;DC;20500;10
+3;Cartman;Eric;84 Bigboned Way;South Park;CO;84214;20
+4;Crockett;Davey;The Alamo;San Antonio;TX;78210;15
+5;Doe;Jane;821 Zimbabwe Ave;Washington;DC;20021;0
+6;Gates;Bill;1 Microsoft Way;Redmond;WA;98052;10
+7;Jefferson;George;194 Deelux Apartments;In the Sky;NY;10041;10
+8;Kong;King;Empire State Building;New York;NY;10118;20
+9;Munster;Herman;1313 Mockingbird Lane;Fargo;ND;58102;25
+10;Rockne;Knute;146 Keenan Hall;Notre Dame;IN;46556;20
+11;Simpson;Homer;742 Evergreen Terrace;Springfield;US;12345;10
+12;Smith;Bob;12 Main Street;Anytown;IN;46001;15

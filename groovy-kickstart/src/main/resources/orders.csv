@@ -1,0 +1,17 @@
+orderNr;customerNr;product;quantity;unitPrice
+1;1;TV;1;250
+1;1;Radio;1;100
+1;1;Phone;2;55
+1;1;Speakers;1;23
+2;1;Battery;10;2
+2;1;Charger;1;15
+3;2;TV;1;250
+3;2;Radio;1;100
+3;2;Charger;2;15
+3;2;Speakers;3;23
+4;3;TV;1;250
+5;4;Radio;1;100
+6;4;Battery;12;2
+7;5;Battery;1;2
+8;6;Battery;11;2
+9;7;Radio;2;100
