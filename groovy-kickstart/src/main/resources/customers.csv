@@ -1,4 +1,4 @@
-customerNumber;lastName;firstName;address;city;state;zip;discount
+customerNumber;lastName;firstName;address.street;address.city;address.state;address.zip;discount
 1;Buffet;Jimmy;Somewhere on the Beach;Key West;FL;33040;10
 2;Bush;George;1600 Pennsylvania Ave;Washington;DC;20500;10
 3;Cartman;Eric;84 Bigboned Way;South Park;CO;84214;20
