@@ -24,6 +24,7 @@ assert name.length() == name.size()
 
 assert 'tab:\t backslash:\\ double quote:" single quote:\'' == "tab:\t backslash:\\ double quote:\" single quote:'"
 assert (/tab:\u0009 backslash:\ double quote:" single quote:'/) == "tab:\t backslash:\\ double quote:\" single quote:'"
+assert ($/backslash:\ forward slash:/ /$) == "backslash:\\ forward slash:/ "
 
 
 assert '''preserve
