@@ -24,7 +24,7 @@ class CsvParser {
     }
 
     static void main(String[] args) {
-        println new File('.').absolutePath
+        new File('.').absolutePath
         println new CsvParser().parse(new File('src/main/resources/customers.csv'))
     }
 }
