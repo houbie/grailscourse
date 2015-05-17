@@ -21,7 +21,3 @@ assert ' '
 
 //generic
 assert [].asType(Boolean) == false
-
-//dynamic range
-int i = 10
-assert 1..i == 1..10

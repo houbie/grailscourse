@@ -1,10 +1,10 @@
 package groovykickstart.advanced
 
-println 'man meets cat and lion in java'
+println 'Java programmer meets cat and lion'
 
 Man.main()
 
-println 'man meets cat and lion in Groovy'
+println 'Groovy programmer meets cat and lion'
 
 Cat[] cats = [new Cat(), new Lion()]
 def man = new Man()
