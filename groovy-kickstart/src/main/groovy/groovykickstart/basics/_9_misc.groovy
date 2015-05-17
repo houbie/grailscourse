@@ -1,6 +1,12 @@
 package groovykickstart.basics
 
-import java.awt.Dimension
+import javafx.beans.InvalidationListener
+import javafx.beans.Observable as FxObservable
+
+import javax.swing.SortingFocusTraversalPolicy as SFTP
+import java.awt.*
+import java.util.List
+import java.util.Observable as JuObservable
 
 print("Hello ") //System.out.print
 println("world!") //System.out.println
@@ -108,3 +114,21 @@ assert '\n' + toTable(['Groovy', 'Java']) == '''
 |   Java   |
 '''
 
+
+//import aliasing
+//shorter names
+def sortingFocusTraversalPolicy = new SFTP({} as Comparator)
+
+//resolve conflicts
+class MyObservable extends JuObservable implements FxObservable{
+
+    @Override
+    void addListener(InvalidationListener listener) {
+
+    }
+
+    @Override
+    void removeListener(InvalidationListener listener) {
+
+    }
+}
