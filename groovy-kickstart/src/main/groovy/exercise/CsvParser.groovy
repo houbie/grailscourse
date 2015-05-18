@@ -61,8 +61,8 @@ class CsvParser {
         def csvParser = new CsvParser()
         def customers = csvParser.parseCustomers(new File('src/main/resources/customers.csv'))
         println customers
-        def orders = csvParser.parseOrders(new File('src/main/resources/orders.csv'))
         println "############"
+        def orders = csvParser.parseOrders(new File('src/main/resources/orders.csv'))
         println orders
     }
 }
