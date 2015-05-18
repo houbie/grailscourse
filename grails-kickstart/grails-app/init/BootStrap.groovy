@@ -7,7 +7,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        if (Environment.developmentMode) {
+        if (Environment.current== Environment.DEVELOPMENT) {
             PetType catType = new PetType(name: 'cat').save(failOnError: true)
             PetType dogType = new PetType(name: 'dog').save(failOnError: true)
             Pet felix = new Pet(name: 'Felix', type: catType, birthDate: new GregorianCalendar(2001, 1, 20).time)

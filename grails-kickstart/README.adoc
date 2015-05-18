@@ -31,3 +31,8 @@ In the grails shell:
 * command-line gradle: `./gradlew bootRun`
 * Intellij
 ** Open _Application.java_
+** Select menu:Run[Run Application]
+** Download the http://central.maven.org/maven2/org/springframework/springloaded/1.2.3.RELEASE/springloaded-1.2.3.RELEASE.jar[spring-loaded jar]
+** Edit the run configuration
+*** Add VM option: `-javaagent:/path/to/springloaded-1.2.3.RELEASE.jar -noverify`
+** The next time you start the app, you will have hot reloading
