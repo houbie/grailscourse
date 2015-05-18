@@ -1,0 +1,33 @@
+= Grails kickstart
+
+== Create project
+Create project and start the grails shell from the command-line
+
+----
+grails create-app kickstart
+cd kickstart
+grails
+----
+
+NOTE: The shell provides completion with the kbd:[Tab] key for commands and domain classes
+
+== Import in Intellij
+* Select menu:File[New > Project from existing sources...]
+* Select the application directory
+* Select _Gradle_
+
+== Create domain class
+In the grails shell:
+
+`create-domain-class petclinic.Vet`
+
+== Generate controller and views
+In the grails shell:
+
+`generate-all petclinic.Vet`
+
+== Run the app
+* grails shell: `run-app`
+* command-line gradle: `./gradlew bootRun`
+* Intellij
+** Open _Application.java_
