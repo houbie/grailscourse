@@ -3,9 +3,9 @@ package petclinic
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(SpecialtyController)
-@Mock(Specialty)
-class SpecialtyControllerSpec extends Specification {
+@TestFor(VisitController)
+@Mock(Visit)
+class VisitControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -19,8 +19,8 @@ class SpecialtyControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.specialtyList
-            model.specialtyCount == 0
+            !model.visitList
+            model.visitCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -28,7 +28,7 @@ class SpecialtyControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.specialty!= null
+            model.visit!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -36,25 +36,25 @@ class SpecialtyControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def specialty = new Specialty()
-            specialty.validate()
-            controller.save(specialty)
+            def visit = new Visit()
+            visit.validate()
+            controller.save(visit)
 
         then:"The create view is rendered again with the correct model"
-            model.specialty!= null
+            model.visit!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            specialty = new Specialty(params)
+            visit = new Visit(params)
 
-            controller.save(specialty)
+            controller.save(visit)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/specialty/show/1'
+            response.redirectedUrl == '/visit/show/1'
             controller.flash.message != null
-            Specialty.count() == 1
+            Visit.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -66,11 +66,11 @@ class SpecialtyControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def specialty = new Specialty(params)
-            controller.show(specialty)
+            def visit = new Visit(params)
+            controller.show(visit)
 
         then:"A model is populated containing the domain instance"
-            model.specialty == specialty
+            model.visit == visit
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -82,11 +82,11 @@ class SpecialtyControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def specialty = new Specialty(params)
-            controller.edit(specialty)
+            def visit = new Visit(params)
+            controller.edit(visit)
 
         then:"A model is populated containing the domain instance"
-            model.specialty == specialty
+            model.visit == visit
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +96,28 @@ class SpecialtyControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/specialty/index'
+            response.redirectedUrl == '/visit/index'
             flash.message != null
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def specialty = new Specialty()
-            specialty.validate()
-            controller.update(specialty)
+            def visit = new Visit()
+            visit.validate()
+            controller.update(visit)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.specialty == specialty
+            model.visit == visit
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            specialty = new Specialty(params).save(flush: true)
-            controller.update(specialty)
+            visit = new Visit(params).save(flush: true)
+            controller.update(visit)
 
         then:"A redirect is issued to the show action"
-            specialty != null
-            response.redirectedUrl == "/specialty/show/$specialty.id"
+            visit != null
+            response.redirectedUrl == "/visit/show/$visit.id"
             flash.message != null
     }
 
@@ -128,23 +128,23 @@ class SpecialtyControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/specialty/index'
+            response.redirectedUrl == '/visit/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def specialty = new Specialty(params).save(flush: true)
+            def visit = new Visit(params).save(flush: true)
 
         then:"It exists"
-            Specialty.count() == 1
+            Visit.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(specialty)
+            controller.delete(visit)
 
         then:"The instance is deleted"
-            Specialty.count() == 0
-            response.redirectedUrl == '/specialty/index'
+            Visit.count() == 0
+            response.redirectedUrl == '/visit/index'
             flash.message != null
     }
 }

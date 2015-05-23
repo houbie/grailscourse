@@ -6,9 +6,7 @@ class Person {
     String lastName
 
     static constraints = {
-        firstName nullable: false, maxSize: 20
-        lastName nullable: false, maxSize: 20
+        firstName blank: false
+        lastName blank: false
     }
-
-    String toString() { "$firstName $lastName" }
 }

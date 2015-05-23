@@ -2,15 +2,18 @@ package petclinic
 
 class Pet {
 
-    static belongsTo = [owner: Owner]
-
     String name
-    PetType type
     Date birthDate
-//    Set<Visit> visits
+    PetType type
+    PetOwner owner
+
+    static hasMany = [visits: Visit]
 
     static constraints = {
+        name blank: false, validator: { name, pet ->
+            if (!pet.id && pet.owner?.pets?.find { it.name == name }) {
+                return 'pet.duplicate'
+            }
+        }
     }
-
-    String toString() { name }
 }

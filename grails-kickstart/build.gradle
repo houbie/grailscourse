@@ -63,6 +63,7 @@ dependencies {
 
     runtime "org.grails.plugins:asset-pipeline"
     runtime "org.grails.plugins:scaffolding"
+    runtime "org.grails.plugins:fields:2.0.2-SNAPSHOT"
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"

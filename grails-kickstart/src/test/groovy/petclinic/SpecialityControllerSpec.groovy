@@ -3,9 +3,9 @@ package petclinic
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(OwnerController)
-@Mock(Owner)
-class OwnerControllerSpec extends Specification {
+@TestFor(SpecialityController)
+@Mock(Speciality)
+class SpecialityControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -19,8 +19,8 @@ class OwnerControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.ownerList
-            model.ownerCount == 0
+            !model.specialityList
+            model.specialityCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -28,7 +28,7 @@ class OwnerControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.owner!= null
+            model.speciality!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -36,25 +36,25 @@ class OwnerControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def owner = new Owner()
-            owner.validate()
-            controller.save(owner)
+            def speciality = new Speciality()
+            speciality.validate()
+            controller.save(speciality)
 
         then:"The create view is rendered again with the correct model"
-            model.owner!= null
+            model.speciality!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            owner = new Owner(params)
+            speciality = new Speciality(params)
 
-            controller.save(owner)
+            controller.save(speciality)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/owner/show/1'
+            response.redirectedUrl == '/speciality/show/1'
             controller.flash.message != null
-            Owner.count() == 1
+            Speciality.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -66,11 +66,11 @@ class OwnerControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def owner = new Owner(params)
-            controller.show(owner)
+            def speciality = new Speciality(params)
+            controller.show(speciality)
 
         then:"A model is populated containing the domain instance"
-            model.owner == owner
+            model.speciality == speciality
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -82,11 +82,11 @@ class OwnerControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def owner = new Owner(params)
-            controller.edit(owner)
+            def speciality = new Speciality(params)
+            controller.edit(speciality)
 
         then:"A model is populated containing the domain instance"
-            model.owner == owner
+            model.speciality == speciality
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +96,28 @@ class OwnerControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/owner/index'
+            response.redirectedUrl == '/speciality/index'
             flash.message != null
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def owner = new Owner()
-            owner.validate()
-            controller.update(owner)
+            def speciality = new Speciality()
+            speciality.validate()
+            controller.update(speciality)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.owner == owner
+            model.speciality == speciality
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            owner = new Owner(params).save(flush: true)
-            controller.update(owner)
+            speciality = new Speciality(params).save(flush: true)
+            controller.update(speciality)
 
         then:"A redirect is issued to the show action"
-            owner != null
-            response.redirectedUrl == "/owner/show/$owner.id"
+            speciality != null
+            response.redirectedUrl == "/speciality/show/$speciality.id"
             flash.message != null
     }
 
@@ -128,23 +128,23 @@ class OwnerControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/owner/index'
+            response.redirectedUrl == '/speciality/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def owner = new Owner(params).save(flush: true)
+            def speciality = new Speciality(params).save(flush: true)
 
         then:"It exists"
-            Owner.count() == 1
+            Speciality.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(owner)
+            controller.delete(speciality)
 
         then:"The instance is deleted"
-            Owner.count() == 0
-            response.redirectedUrl == '/owner/index'
+            Speciality.count() == 0
+            response.redirectedUrl == '/speciality/index'
             flash.message != null
     }
 }

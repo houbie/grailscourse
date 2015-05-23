@@ -1,6 +1,6 @@
 package petclinic
 
-class PetType {
+class Speciality {
 
     String name
 
@@ -8,3 +8,4 @@ class PetType {
         name blank: false, minSize: 3, maxSize: 20, unique: true
     }
 }
+
