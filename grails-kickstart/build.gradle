@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.1.1'
+        classpath 'org.grails.plugins:database-migration:2.0.0.RC1'
     }
 }
 
@@ -30,6 +31,14 @@ apply plugin: "org.grails.grails-gsp"
 ext {
     grailsVersion = project.grailsVersion
     gradleWrapperVersion = project.gradleWrapperVersion
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'grails-app/migrations'
+        }
+    }
 }
 
 assets {
@@ -64,6 +73,9 @@ dependencies {
     runtime "org.grails.plugins:asset-pipeline"
     runtime "org.grails.plugins:scaffolding"
     runtime "org.grails.plugins:fields:2.0.2-SNAPSHOT"
+    runtime "org.grails.plugins:database-migration:2.0.0.RC1"
+    compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
+
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"

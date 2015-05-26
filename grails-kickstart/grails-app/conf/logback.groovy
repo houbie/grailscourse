@@ -10,6 +10,7 @@ appender('STDOUT', ConsoleAppender) {
 }
 
 root(ERROR, ['STDOUT'])
+logger('org.springframework', INFO)
 
 if(Environment.current == Environment.DEVELOPMENT) {
     def targetDir = BuildSettings.TARGET_DIR

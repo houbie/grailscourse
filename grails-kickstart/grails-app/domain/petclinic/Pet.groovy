@@ -5,9 +5,14 @@ class Pet {
     String name
     Date birthDate
     PetType type
-    PetOwner owner
+//    String nickName
+
+
+    @Override
+    String toString() { name }
 
     static hasMany = [visits: Visit]
+    static belongsTo = [owner: PetOwner]
 
     static constraints = {
         name blank: false, validator: { name, pet ->
@@ -15,5 +20,6 @@ class Pet {
                 return 'pet.duplicate'
             }
         }
+//        nickName nullable: true
     }
 }

@@ -87,8 +87,12 @@ environments:
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
-            dbCreate: update
+            dbCreate: none
             url: jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+#            driverClassName: org.postgresql.Driver
+#            username: test
+#            password: test
+#            url: jdbc:postgresql://localhost:5432/test
             properties:
                 jmxEnabled: true
                 initialSize: 5
@@ -107,3 +111,8 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+
+grails.plugin.databasemigration:
+    updateOnStart: true
+    dropOnStart: false
+    updateOnStartFileNames: changelog.groovy

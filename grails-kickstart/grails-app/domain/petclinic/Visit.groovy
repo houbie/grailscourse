@@ -4,7 +4,11 @@ class Visit {
 
     Date date = new Date()
     String description
-    Pet pet
+
+    @Override
+    String toString() { description }
+
+    static belongsTo = [pet: Pet]
 
     static constraints = {
         description blank: false
