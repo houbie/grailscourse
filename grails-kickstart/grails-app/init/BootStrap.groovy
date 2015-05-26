@@ -10,6 +10,7 @@ class BootStrap {
 
     def init = { servletContext ->
 
+        println '##### Bootstrap'
         if (Environment.current == DEVELOPMENT) {
             if (!Speciality.count()) {
                 def radiology = new Speciality(name: 'radiology').save(failOnError: true)
