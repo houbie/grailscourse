@@ -11,14 +11,16 @@ import javax.sql.DataSource
 @Slf4j
 class AnnotationBean {
     @Autowired
-    DataSource dataSource
+    private DataSource dataSource
 
     @Autowired
-    EchoService echoService
+    private EchoService echoService
 
     @PostConstruct
     void init() {
-        log.info("#######################################")
-        log.info("######## DataSource: $dataSource, EchoService: $echoService")
+        assert dataSource
+        assert echoService
     }
+
+    String echo(String s) { echoService.echo(s) }
 }

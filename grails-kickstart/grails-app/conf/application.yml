@@ -79,7 +79,7 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSource:
@@ -113,6 +113,6 @@ environments:
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
 grails.plugin.databasemigration:
-    updateOnStart: true
+    updateOnStart: false
     dropOnStart: false
     updateOnStartFileNames: changelog.groovy
