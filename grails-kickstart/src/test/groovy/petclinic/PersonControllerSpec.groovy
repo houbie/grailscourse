@@ -9,8 +9,8 @@ class PersonControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["firstName"] = 'First Name'
+        params["lastName"] = 'Last Name'
     }
 
     void "Test the index action returns the correct model"() {
@@ -20,7 +20,7 @@ class PersonControllerSpec extends Specification {
 
         then:"The model is correct"
             !model.personList
-            model.personCount == 0
+            !model.personCount
     }
 
     void "Test the create action returns the correct model"() {
