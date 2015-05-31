@@ -81,7 +81,10 @@ dependencies {
     testCompile "org.grails.plugins:geb"
 
     // Note: It is recommended to update to a more robust driver (Chrome, Firefox etc.)
+//    testCompile 'org.seleniumhq.selenium:selenium-support:2.45.0'
     testRuntime 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0'
+    testCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.45.0'
+    testCompile 'org.seleniumhq.selenium:selenium-chrome-driver:2.45.0'
 
     console "org.grails:grails-console"
 }
