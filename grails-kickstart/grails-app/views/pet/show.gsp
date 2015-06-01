@@ -19,8 +19,14 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="pet" />
-            </ol>
+            <g:displayList bean="pet">
+                <g:displayItem property="name"/>
+                <g:displayItem property="birthDate"/>
+                <g:displayItem property="owner"/>
+                <g:displayItem property="type">${pet.type.name}</g:displayItem>
+                <g:displayItem property="visits"/>
+            </g:displayList>
+
             <g:form resource="${pet}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${pet}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
