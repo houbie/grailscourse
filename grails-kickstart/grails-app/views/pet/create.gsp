@@ -1,3 +1,4 @@
+<%@ page import="petclinic.PetOwner" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +28,7 @@
             </g:hasErrors>
             <g:form action="save">
                 <fieldset class="form">
-                    <f:all bean="pet"/>
+                    <tmpl:form pet="${pet}" create="true"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

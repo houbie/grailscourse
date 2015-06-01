@@ -1,10 +1,6 @@
 package petclinic
 import geb.spock.GebSpec
-import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
-
-@Integration
-@Rollback //does nothing
+//@Integration
 class SampleGebSpec extends GebSpec {
 
     void "test something"() {
@@ -21,6 +17,6 @@ class SampleGebSpec extends GebSpec {
         $('a', text: ~/.+PersonController/).click()
 
         then: "The list has 9 elements"
-        $('tbody').find('tr')*.find('td')*.text() == ['James', 'Helen', 'Linda', 'Rafael', 'Henry', 'Sharon', 'John', 'Jane', 'Woody']
+        $('tbody').find('ol')*.find('td')*.text() == ['James', 'Helen', 'Linda', 'Rafael', 'Henry', 'Sharon', 'John', 'Jane', 'Woody']
     }
 }

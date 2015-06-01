@@ -29,7 +29,7 @@
             <g:form resource="${pet}" method="PUT">
                 <g:hiddenField name="version" value="${pet?.version}" />
                 <fieldset class="form">
-                    <f:all bean="pet"/>
+                    <tmpl:form pet="${pet}"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />

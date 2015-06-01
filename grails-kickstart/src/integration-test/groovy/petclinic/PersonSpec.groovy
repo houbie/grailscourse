@@ -1,11 +1,8 @@
 package petclinic
-
 import geb.spock.GebSpec
-import grails.test.mixin.integration.Integration
 import spock.lang.Shared
 import spock.lang.Stepwise
-
-@Integration
+//@Integration
 @Stepwise
 class PersonSpec extends GebSpec {
     @Shared
