@@ -1,7 +1,8 @@
 package petclinic
 
-import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class PetController {
@@ -103,5 +104,14 @@ class PetController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def doubleSelect() {
+        [owners: PetOwner.list(), pets: Pet.list()]
+    }
+
+    def filterPets(PetOwner owner) {
+        def pets = (owner) ? Pet.findAllByOwner(owner) : Pet.list()
+        render(template: 'petSelect', model: [pets: pets])
     }
 }
