@@ -1,8 +1,5 @@
 import grails.util.Environment
-import petclinic.PetOwner
-import petclinic.PetType
-import petclinic.Speciality
-import petclinic.Vet
+import petclinic.*
 
 import static grails.util.Environment.DEVELOPMENT
 
@@ -33,8 +30,16 @@ class BootStrap {
                         .save(failOnError: true)
                 new Vet(firstName: 'Sharon', lastName: 'Jenkins').save(failOnError: true)
 
+
+                def tags = [cat  : new Tag(name: 'CUTE', code: 'A1').save(failOnError: true),
+                            snake: new Tag(name: 'DANGEROUS', code: 'B2').save(failOnError: true),
+                            dog  : new Tag(name: 'FAST', code: 'C3').save(failOnError: true)]
+
                 for (String type in ['dog', 'lizard', 'cat', 'snake', 'bird', 'hamster']) {
-                new PetType(name: type).save(failOnError: true)
+                    def petType = new PetType(name: type).save(failOnError: true)
+                    if (tags[type]) {
+                        petType.addToTags(tags[type])
+                    }
                 }
             }
 
