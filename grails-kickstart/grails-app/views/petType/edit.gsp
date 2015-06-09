@@ -30,10 +30,11 @@
             <g:form resource="${petType}" method="PUT">
                 <g:hiddenField name="version" value="${petType?.version}" />
                 <fieldset class="form">
+                    %{-- can be replaced with <f:all bean="petType"/> when oneToMany/__input.gsp is renamed to _input.gsp --}%
                     <f:with bean="petType">
                         <f:field property="name"/>
                         <f:field property="tags">
-                            <g:select name="tags" value="${petType?.tags*.id}" from="${Tag.list()}" optionKey="id" multiple="true"/>
+                            <g:select name="tags" value="${petType?.tags*.id}" from="${Tag.list()}" optionKey="id"/>
                         </f:field>
                     </f:with>
                 </fieldset>

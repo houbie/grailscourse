@@ -10,5 +10,9 @@
         <li>${pet.name}</li>
     </g:each>
         </ul>
+    <p>
+        <g:select name="foo" from="${1..10}"/>
+        <select
+    </p>
     </body>
 </html>
