@@ -16,7 +16,7 @@
 
 <div role="main">
     <g:select id="ownerSelect" name="owner" from="${owners}" optionKey="id"/>
-    <tmpl:petSelect pets="${pets}"/>
+    <tmpl:petSelect pets="${pets}" />
 </div>
 <script type="text/javascript">
     $('#ownerSelect').on('change', function () {

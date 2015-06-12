@@ -19,13 +19,13 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <g:displayList bean="pet">
-                <g:displayItem property="name"/>
-                <g:displayItem property="birthDate"/>
-                <g:displayItem property="owner"/>
-                <g:displayItem property="type">${pet.type.name}</g:displayItem>
-                <g:displayItem property="visits"/>
-            </g:displayList>
+            <f:displayList bean="pet">
+                <f:displayItem property="name"/>
+                <f:displayItem property="birthDate"/>
+                <f:displayItem property="owner"/>
+                <f:displayItem property="type">${pet.type.name}</f:displayItem>
+                <f:displayItem property="visits"/>
+            </f:displayList>
 
             <g:form resource="${pet}" method="DELETE">
                 <fieldset class="buttons">

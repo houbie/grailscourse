@@ -14,6 +14,7 @@ class PetOwnerController {
     }
 
     def show(PetOwner petOwner) {
+
         respond petOwner
     }
 

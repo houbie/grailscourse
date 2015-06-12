@@ -1,14 +1,22 @@
 package petclinic
 
-import grails.core.GrailsApplication
 import grails.util.GrailsNameUtils
 
 class FieldsTagLib {
+    static namespace = "f"
     static defaultEncodeAs = [taglib: 'raw']
 
     static final String BEAN_PAGE_SCOPE_VARIABLE = 'f:with:bean'
 
-    GrailsApplication grailsApplication
+    @Lazy
+    def formFieldsTagLib = grailsApplication.mainContext.getBean('grails.plugin.formfields.FormFieldsTagLib')
+
+    def field = { attrs, body ->
+        if (!attrs.'input-class') {
+            attrs.'input-class' = 'form-control'
+        }
+        formFieldsTagLib.field.call(attrs, body)
+    }
 
     def displayList = { attrs, body ->
         def bean = attrs.remove('bean')
