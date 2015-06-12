@@ -30,6 +30,4 @@
         attrs.class = 'form-control'
     }
 %>
---constraints: ${constraints*.getClass()}--
---persistentProperty: ${persistentProperty*.getClass()}--
 ${raw(g.field(attrs))}
