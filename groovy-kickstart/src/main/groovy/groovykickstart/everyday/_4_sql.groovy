@@ -3,9 +3,11 @@ package groovykickstart.everyday
 import groovy.sql.Sql
 import org.h2.jdbcx.JdbcDataSource
 
+import java.text.SimpleDateFormat
+
 
 Sql db = new Sql(new JdbcDataSource(
-        URL: 'jdbc:h2:file:~/personDB',
+        URL: 'jdbc:h2:mem:test;DB_CLOSE_DELAY=-1',
         user: 'sa',
         password: ''))
 
@@ -22,11 +24,18 @@ db.execute '''
     INSERT INTO Person (firstName, lastName, dateOfBirth) VALUES ('Jane', 'Doe', '1980-03-12');
 '''
 
-assert db.rows('SELECT * FROM Person').size() == 1
+def birthDate =  new SimpleDateFormat('yyy-MM-dd').parse('1980-03-12')
+assert db.rows('SELECT * FROM Person') == [[PERSONID: 1, FIRSTNAME: 'Jane', LASTNAME: 'Doe', DATEOFBIRTH: birthDate]]
+assert db.firstRow('SELECT * FROM Person') == [PERSONID: 1, FIRSTNAME: 'Jane', LASTNAME: 'Doe', DATEOFBIRTH: birthDate]
 
 
-db.eachRow('SELECT firstName, lastName FROM Person') { row ->
-    println row[0] + ' ' + row[1]
+db.eachRow('SELECT firstName, lastName FROM Person WHERE firstName = ?', ['Jane']) { row ->
+    assert row[0] ==  row.firstName // you can use positional or named references
+    println "sql with parameter list: $row.firstName  $row.lastName"
+}
+
+db.eachRow('SELECT firstName, lastName FROM Person WHERE firstName = :firstName AND lastName = :lastName', [firstName: 'Jane', lastName: 'Doe']) { row ->
+    println "sql with named parameters: $row.firstName  $row.lastName"
 }
 
 
