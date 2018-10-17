@@ -1,35 +1,36 @@
 package groovykickstart.basics
 
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+def finder = ('groovy' =~ /gr.*/)
+assert finder instanceof java.util.regex.Matcher
 
-String s = 'Groovy rocks!'
+def matcher = ('groovy' ==~ /gr.*/)
+assert matcher instanceof Boolean
 
-//pattern
-assert ~/d+/ instanceof Pattern
+assert 'Groovy rocks!' =~ /Groovy/  // =~ in conditional context returns boolean.
+assert !('Groovy rocks!' ==~ /Groovy/)  // ==~ looks for an exact match.
+assert 'Groovy rocks!' ==~ /Groovy.*/
 
-//find operator =~
-def roFinder = s =~ /ro(\w)/
-def uFinder = s =~ /u/
+def cool = /gr\w{4}/  // Start with gr followed by 4 characters.
+def findCool = ('groovy, java and grails rock!' =~ /$cool/)
+assert 2 == findCool.count
+assert 2 == findCool.size()  // Groovy adds size() method.
+assert 'groovy' == findCool[0]  // Array-like access to match results.
+assert 'grails' == findCool.getAt(1)
 
-assert roFinder.class == Matcher
+// With grouping we get a multidimensional array.
+def group = ('groovy and grails, ruby and rails' =~ /(\w+) and (\w+)/)
+assert group.hasGroup()
+assert 2 == group.size()
+assert ['groovy and grails', 'groovy', 'grails'] == group[0]
+assert 'rails' == group[1][2]
 
-if (roFinder){
-    assert true
-}else{
-    assert false
-}
+// Use matcher methods.
+assert 'Hi world' == ('Hello world' =~ /Hello/).replaceFirst('Hi')
 
-assert !uFinder
-
-assert roFinder.size() == 2
-assert roFinder[0] == ['roo', 'o']
-assert roFinder[1] == ['roc', 'c']
-
-
-//match operator ==~
-assert !(s ==~ /ro(\w)/)
-assert s ==~ /Groovy \w+!/
+// Groovy matcher syntax can be used in other methods.
+assert ['abc'] == ['def', 'abc', '123'].findAll { it =~ /abc/ }
+assert ['abc'] == ['def', 'abc', '123'].grep(~/abc/)
+assert [false, false, true] == ['def', 'abc', '123'].collect { it ==~ /\d{3}/ }
 
 
 //multiple assignment

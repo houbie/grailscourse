@@ -57,10 +57,6 @@ assert list.max() == 3
 assert list.min() == 1
 assert list.sum() == 6
 
-
-
-
-
 //maps
 Object object = new Object()
 def map = [key1: 1, 'key 2': 2, (object): 3, object: 4]
@@ -76,3 +72,22 @@ assert map[object] == 3
 assert map['object'] == 4
 
 assert [:].size() == 0 //empty map literal
+
+
+def students = [
+        [name: "Jack", courses: [
+                [name: "Math", hours: 10],
+                [name: "Programming", hours: 20]]],
+        [name: "John", courses: [
+                [name: "Math", hours: 10],
+                [name: "Databases", hours: 20]]],
+        [name: "Jane", courses: [
+                [name: "English", hours: 15],
+                [name: "Physics", hours: 22]]]
+]
+
+//power stuff
+assert [1, 2, 3, 4].findAll { it % 2 == 0 } == [2, 4]
+assert [1, 2, 3, 4].collect { it * 2 } == [2, 4, 6, 8]
+assert [1, 'a', new Object()].grep(String) == ['a']
+assert students*.courses*.name.flatten().unique() == ['Math', 'Programming', 'Databases', 'English', 'Physics']
