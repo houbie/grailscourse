@@ -3,7 +3,7 @@ package groovykickstart.everyday
 import groovy.xml.MarkupBuilder
 
 
-assert new File('src/main/resources/hello.txt').text == 'Hello Groovy!\n'
+assert new File('src/main/resources/hello.txt').text == 'Hello Groovy!'
 
 File tmpFile = File.createTempFile('hello', 'tmp')
 tmpFile.text = 'Hello world!\n'

@@ -20,7 +20,7 @@ class ScriptsSpec extends Specification {
         def result = []
         new File(basePath).eachFileRecurse {
             if (it.name =~ /_\d+/) {
-                result << (it.path - basePath - '.groovy').replaceAll(separator, '.')
+                result << (it.path - basePath - '.groovy').replaceAll('[/\\\\]', '.')
             }
         }
         println result

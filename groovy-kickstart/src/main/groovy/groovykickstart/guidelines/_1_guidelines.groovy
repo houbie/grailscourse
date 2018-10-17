@@ -19,15 +19,14 @@ def compile(String code) {
     try {
         return shell.evaluate(code)
     } catch (e) {
-        e.printStackTrace()
         return "Error: $e.message"
     }
 }
 
 //Strings: prefer single quotes
-pritln 'constant string'
-pritln "Hello, I'm Ivo"
-pritln "GString with variable content ${new Date()}"
+println 'constant string'
+println "Hello, I'm Ivo"
+println "GString with variable content ${new Date()}"
 
 //typing:
 // local variables: flow typing (def)

@@ -4,7 +4,7 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 @ToString
-@EqualsAndHashCode(excludes = ['regression'])
+@EqualsAndHashCode(excludes = ['reporter'])
 class Bug_v2 {
     String title
     String description
