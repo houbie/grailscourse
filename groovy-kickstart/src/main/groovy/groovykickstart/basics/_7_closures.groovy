@@ -21,14 +21,14 @@ assert filter(list, isOdd) == [1, 3]
 
 //anonymous closure
 filter(list, { Number number -> return number % 2 != 0 })
-filter(list) { Number number -> return number % 2 != 0 }
+filter(list) { Number number -> return number % 2 != 0 } // when the last argument is a closure, it can be placed outside the parenthesis
 
 //GDK methods
 list.findAll({ Number number -> return number % 2 != 0 })
 
 //simplified syntax
-list.findAll() { Number number -> return number % 2 != 0 }
-list.findAll { Number number -> return number % 2 != 0 }
+list.findAll() { Number number -> return number % 2 != 0 } // when the last argument is a closure, it can be placed outside the parenthesis
+list.findAll { Number number -> return number % 2 != 0 } // parenthesis are optional
 list.findAll { return it % 2 != 0 }
 list.findAll { it % 2 != 0 }
 list.findAll { it % 2 }
